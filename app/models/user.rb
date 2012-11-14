@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validates_date :dob, :presence => true, :on_or_before => lambda {Date.today.years_ago(18)},
   :on_or_before_message => "must be at least 18 years old to join this site"
   validates :password, :presence => true, length: { minimum: 6 }
-  validates :password == :confirm_password
   validate :passwords_equal
   validates :email, :presence => true, :uniqueness => true ,
                     :format   => { :with => email_regex }
