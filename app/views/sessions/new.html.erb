@@ -1,0 +1,22 @@
+<% provide(:title, "Sign in") %>
+<% unless @errors.nil? %>
+<div id="error_explanation">
+  
+  <h2><%= @errors %> prohibited this user from being saved:</h2>
+
+      <% end %>
+    </div>
+<h1>Sign in</h1>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Sign in" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>

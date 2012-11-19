@@ -5,13 +5,15 @@
 <% shuffle_cards %>
 
 <% flop = deal_flop
-    flop.each do |card|
-      
-    end
-%>
+    flop.each do |card|%>
+<%= card%>
+      <%=image_tag("cards_png/#{card[1]}#{card[0]}.png") %>
+    <%end%>
 
 <% @pokerdeck.length %>
 
-<% deal_turn %>
+<% turn = deal_turn %>
+<%=image_tag("cards_png/#{turn[1]}#{turn[0]}.png") %>
 
-<% deal_river %>
+<% river = deal_river %>
+<%=image_tag("cards_png/#{river[1]}#{river[0]}.png") %>
