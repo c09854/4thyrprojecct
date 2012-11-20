@@ -17,7 +17,10 @@ module PokergameHelper
     end
     
     def deal
-        users.each 
+        users = [[1][2]]
+        users.each do |user|
+            user << @pokerdeck.pop
+        end
     end
     
     def deal_flop

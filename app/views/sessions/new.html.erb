@@ -6,6 +6,9 @@
 
       <% end %>
     </div>
+<%  unless session[:user_id].nil?
+        redirect_to_user
+    end %>
 <h1>Sign in</h1>
 
 <%= form_for(:session, url: sessions_path) do |f| %>
