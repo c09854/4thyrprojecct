@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
                       :format   => { :with => email_regex }
                     
     def passwords_equal
-        erros.add(:password, "password and confirm password must be equal")unless password == confirm_password
+        erros.add(:password, "password and confirm password must be equal") unless password == confirm_password
     end
-                    
-                    
+    
+    
     def has_password?(submitted_password)
         password == submitted_password
     end

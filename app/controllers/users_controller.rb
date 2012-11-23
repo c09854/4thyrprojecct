@@ -58,7 +58,6 @@ before_filter :authorise
     # PUT /users/1.json
     def update
         @user = User.find(params[:id])
-    
         respond_to do |format|
             if @user.update_attributes(params[:user])
                 format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -81,4 +80,4 @@ before_filter :authorise
             format.json { head :no_content }
         end
     end
-  end
+end

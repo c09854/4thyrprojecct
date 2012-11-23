@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
   
-    
-    
-
     def new
     end
 
@@ -12,7 +9,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user
         else
-            @error = 'Invalid email/password combination' # Not quite right!
+            @errors = 'Invalid email/password combination' # Not quite right!
         end
     end
 
@@ -22,7 +19,7 @@ class SessionsController < ApplicationController
         else
             flash[:notice] = "you need to sign in first"
         end
-          redirect_to signin_path
+        redirect_to signin_path
     end
   
 end
