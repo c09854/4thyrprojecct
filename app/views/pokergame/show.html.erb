@@ -7,27 +7,34 @@
 <%  deal_card
     deal_card
     @eg_users.each do |user|%>
-<p> user <%= user[0][0] %> </p>
-<%= image_tag("cards_png/#{user[1][1]}#{user[1][0]}.png") %>
-<%= image_tag("cards_png/#{user[2][1]}#{user[2][0]}.png") %>
+
+<p> user <%= user[0] %> </p>
+
+<%= image_tag("cards_png/#{user[1].suit}#{user[1].number}.png") %>
+<%= image_tag("cards_png/#{user[2].suit}#{user[2].number}.png") %>
 <% end %>
     <p>flop</p>
 <% flop = deal_flop
-    flop.each do |card|%>
- <%=image_tag("cards_png/#{card[1]}#{card[0]}.png") %>
+    flop.each do |card|
+%>
+
+ <%=image_tag("cards_png/#{card.suit}#{card.number}.png") %>
     <%end%>
 
 <p>turn</p>
 <% turn = deal_turn %>
-<%=image_tag("cards_png/#{turn[1]}#{turn[0]}.png") %>
+<%=image_tag("cards_png/#{turn.suit}#{turn.number}.png") %>
 
 <p>river</p>
 <% river = deal_river %>
-<%=image_tag("cards_png/#{river[1]}#{river[0]}.png") %>
+<%=image_tag("cards_png/#{river.suit}#{river.number}.png") %>
 
 <p>winning hand</p>
-<% winning_hand = winner %>
-<% winning_hand.each do |key,card| %>
-<%= card%>    
-<%= image_tag("cards_png/#{card[1]}#{card[0]}.png") %>
+<% best_hnd_key = winner %>
+<p> winning player</p>
+<%= best_hnd_key %>
+
+<% @best_hand[best_hnd_key].each do |card| %>
+<%= [card.suit,card.number] %>    
+<%= image_tag("cards_png/#{card.suit}#{card.number}.png") %>
 <% end%>
